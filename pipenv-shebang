@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SCRIPT="$(realpath "$1")"
+DIR="$(dirname "$SCRIPT")"
+PIPFILE="$DIR/Pipfile"
+shift
+
+if [[ -e "$PIPFILE" ]]; then
+  # echo PIPENV_PIPFILE="$PIPFILE" pipenv run python "$SCRIPT" "$@"
+  # PIPENV_PIPFILE="$PIPFILE" pipenv run sh -c "type python"
+  PIPENV_PIPFILE="$PIPFILE" pipenv run python "$SCRIPT" "$@"
+else
+  echo "Missing $PIPFILE"
+  exit 1
+fi
