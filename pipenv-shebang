@@ -1,15 +1,23 @@
 #!/bin/bash
 
-SCRIPT="$(realpath "$1")"
-DIR="$(dirname "$SCRIPT")"
-PIPFILE="$DIR/Pipfile"
-shift
+function getPipfile() {
+  DIR="$(dirname "$1")"
+  if [[ $DIR == "/" ]]; then exit; fi
+  PIPFILE="$DIR/Pipfile"
+  if [[ -e "$PIPFILE" ]]; then
+    echo "$PIPFILE"
+  else
+    getPipfile "$DIR"
+  fi
+}
 
-if [[ -e "$PIPFILE" ]]; then
-  # echo PIPENV_PIPFILE="$PIPFILE" pipenv run python "$SCRIPT" "$@"
-  # PIPENV_PIPFILE="$PIPFILE" pipenv run sh -c "type python"
+SCRIPT="$(realpath "$1")"
+shift
+PIPFILE=$(getPipfile "$SCRIPT")
+
+if [[ -n "$PIPFILE" ]]; then
   PIPENV_PIPFILE="$PIPFILE" pipenv run python "$SCRIPT" "$@"
 else
-  echo "Missing $PIPFILE"
+  echo "Could not locate the Pipfile for $SCRIPT."
   exit 1
 fi
