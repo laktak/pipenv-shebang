@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 function getPipfile() {
   DIR="$(dirname "$1")"
