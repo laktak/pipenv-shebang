@@ -2,6 +2,8 @@
 
 *pipenv-shebang* allows you to put scripts in your path that run in a pipenv environment.
 
+This solves the problem of launching `pipenv run script.py` from outside the script directory.
+
 ## Usage
 
 Put this shebang at the top of your script:
@@ -10,9 +12,13 @@ Put this shebang at the top of your script:
 #!/usr/bin/env pipenv-shebang
 ```
 
-## Installation
+You can also run your script with
 
-Supports Python 3.6 on Linux or macOS.
+```
+pipenv-shebang /path/to/script
+```
+
+## Installation
 
 ```
 sudo pip install pipenv-shebang

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function getPipfile() {
   DIR="$(dirname "$1")"
@@ -16,7 +16,7 @@ shift
 PIPFILE=$(getPipfile "$SCRIPT")
 
 if [[ -n "$PIPFILE" ]]; then
-  PIPENV_PIPFILE="$PIPFILE" pipenv run python "$SCRIPT" "$@"
+  PIPENV_PIPFILE="$PIPFILE" exec pipenv run python "$SCRIPT" "$@"
 else
   echo "Could not locate the Pipfile for $SCRIPT."
   exit 1
