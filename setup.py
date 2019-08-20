@@ -21,4 +21,5 @@ setup(
     packages=[],
     install_requires=[],
     scripts=scripts,
+    data_files=[("py", ["py/pipenv-shebang"]), ("bash", ["bash/pipenv-shebang"])],
 )
