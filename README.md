@@ -26,3 +26,7 @@ sudo pip install pipenv-shebang
 # or
 pip install --user pipenv-shebang
 ```
+
+## Updates
+
+This project is stable. No updates are planned but that does not mean this project is stale, it is very much in use.
