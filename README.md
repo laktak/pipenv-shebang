@@ -1,4 +1,7 @@
+
 # pipenv-shebang
+
+{ repos & mirrors: [github.com/laktak/pipenv-shebang](https://github.com/laktak/pipenv-shebang/), [codeberg.org/laktak/pipenv-shebang](https://codeberg.org/laktak/pipenv-shebang) }
 
 *pipenv-shebang* allows you to put scripts in your path that run in a pipenv environment.
 
